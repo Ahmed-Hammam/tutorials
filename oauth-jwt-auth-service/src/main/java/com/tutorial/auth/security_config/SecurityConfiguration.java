@@ -28,20 +28,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
    public PasswordEncoder encoder() {
       return new BCryptPasswordEncoder();
    }
+   
    @Override
    @Autowired
    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
       auth.userDetailsService(customDetailsService).passwordEncoder(encoder());
    }
+   
    @Override
    protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests().anyRequest().authenticated().and().sessionManagement()
          .sessionCreationPolicy(SessionCreationPolicy.NEVER);
    }
+   
    @Override
    public void configure(WebSecurity web) throws Exception {
-      web.ignoring();
+      web.ignoring().antMatchers("http://localhost:8080/h2-console/");
    }
+   
    @Override
    @Bean
    public AuthenticationManager authenticationManagerBean() throws Exception {

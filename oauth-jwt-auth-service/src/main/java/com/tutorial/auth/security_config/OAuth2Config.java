@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	private String clientid = "tutorialspoint";
-	private String clientSecret = "my-secret-key";
+	private String clientSecret = "password";
 	private String privateKey = "private key";
 	private String publicKey = "public key";
 
@@ -27,7 +27,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	public JwtAccessTokenConverter tokenEnhancer() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
 		converter.setSigningKey(privateKey);
-//		converter.setVerifierKey(publicKey);
+		converter.setVerifierKey(privateKey);
 		return converter;
 	}
 

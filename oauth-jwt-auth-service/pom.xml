@@ -46,8 +46,9 @@
 		
 		<!-- Implements the OAUTH2 structure to enable the Authorization Server and Resource Server. -->
 		<dependency>
-			<groupId>org.springframework.security.oauth.boot</groupId>
-			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.0.10.RELEASE</version>
 		</dependency>
 
 		<!-- generates jwt token for web security -->
