@@ -1,0 +1,17 @@
+type CustomerEntity{
+	id: ID
+	code: String
+	firstName: String
+	lastName: String
+	email: String
+}
+
+extend type Query{
+	findCustomer(id: ID): CustomerEntity
+	findCustomerByCode(code: String): CustomerEntity
+}
+
+extend type Mutation{
+	createCustomer(firstName: String, lastName: String, email: String): CustomerEntity
+	removeCustomer(code: String): Boolean
+}

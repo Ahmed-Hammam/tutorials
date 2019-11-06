@@ -1,0 +1,16 @@
+type OrderEntity{
+	id: ID
+	code: String
+	creationDate: String
+	customer: CustomerEntity
+}
+
+type Query{
+	getAllOrders: [OrderEntity]
+	getAllCustomerOrders(code: String): [OrderEntity]
+}
+
+type Mutation{
+	createOrder(customer: ID): OrderEntity
+	removeOrder(code: String): Boolean
+}

@@ -1,0 +1,21 @@
+mutation {
+  createCustomer(firstName: "Ahmed", lastName: "Hammam", email: "ahmed@gmail.com")
+  {
+    id
+  }
+}
+
+query{
+  findCustomer(id: 1){
+    firstName
+  }
+}
+
+mutation {
+  createOrder(customer: 1)
+  {
+    id,
+    code,
+    creationDate
+  }
+}
