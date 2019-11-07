@@ -26,8 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Optional<CustomerEntity> selectOneById(Long id) {
-		// using getOne to return a proxy
-		return Optional.of(customerRepo.getOne(id));
+		return customerRepo.findById(id);
 	}
 
 	@Override
@@ -38,6 +37,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Void remove(String code) {
 		return customerRepo.deleteByCode(code);
+	}
+
+	@Override
+	public Optional<CustomerEntity> selectOneByEmail(String email) {
+		return customerRepo.findByEmail(email);
 	}
 
 }

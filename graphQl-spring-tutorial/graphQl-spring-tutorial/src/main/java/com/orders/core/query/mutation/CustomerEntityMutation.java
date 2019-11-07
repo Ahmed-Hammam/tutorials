@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.orders.core.entity.CustomerEntity;
+import com.orders.core.exception.CustomerNotFoundException;
 import com.orders.core.service.CustomerService;
 
 @Component
@@ -22,6 +23,9 @@ public class CustomerEntityMutation implements GraphQLMutationResolver {
 
 	// method name is same as name in the order.graphqls
 	public CustomerEntity createCustomer(String firstName, String lastName, String email) {
+		if (customerService.selectOneByEmail(email).isPresent())
+			throw new CustomerNotFoundException("1002");
+
 		CustomerEntity customerEntity = CustomerEntity.builder().code(UUID.randomUUID().toString()).firstName(firstName)
 				.lastName(lastName).email(email).build();
 		return customerService.insert(customerEntity);

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.orders.core.entity.CustomerEntity;
+import com.orders.core.exception.CustomerNotFoundException;
 import com.orders.core.service.CustomerService;
 
 @Component
@@ -19,11 +20,11 @@ public class CustomerEntityResolver implements GraphQLQueryResolver {
 	}
 
 	public CustomerEntity findCustomer(Long id) {
-		return customerService.selectOneById(id).orElseThrow(() -> new NullPointerException("No customer found !"));
+		return customerService.selectOneById(id).orElseThrow(() -> new CustomerNotFoundException("1000"));
 	}
 
 	public CustomerEntity findCustomerByCode(String code) {
 		return customerService.selectByEntityCode(code)
-				.orElseThrow(() -> new NullPointerException("No customer found !"));
+				.orElseThrow(() -> new CustomerNotFoundException("1001"));
 	}
 }

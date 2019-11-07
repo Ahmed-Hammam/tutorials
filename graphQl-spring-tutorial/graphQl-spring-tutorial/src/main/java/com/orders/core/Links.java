@@ -24,4 +24,13 @@ public class Links {
 	// https://dzone.com/articles/configuring-logback-with-spring-boot
 	// https://www.baeldung.com/spring-boot-logging
 	// https://www.codingame.com/playgrounds/4497/configuring-logback-with-spring-boot
+
+	// unit test
+	// https://www.springboottutorial.com/spring-boot-unit-testing-and-mocking-with-mockito-and-junit
+	// https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
+	// https://keyholesoftware.com/2012/02/23/spring-batch-unit-testing-and-mockito/
+	// https://www.baeldung.com/mockito-exceptions
+
+	// graphQl error handling
+	// https://www.howtographql.com/graphql-java/7-error-handling/
 }

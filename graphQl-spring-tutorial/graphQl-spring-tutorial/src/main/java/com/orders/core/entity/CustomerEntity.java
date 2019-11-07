@@ -12,10 +12,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
 @Builder
+@Getter
 @EnableJpaAuditing
 @Table(name="customers")
 @Entity
@@ -41,6 +43,7 @@ public class CustomerEntity extends BaseEntity implements Serializable{
 	private String email;
 
 	
+	
 	@Override
 	public int hashCode() {
 		return this.getId().hashCode();
@@ -56,6 +59,11 @@ public class CustomerEntity extends BaseEntity implements Serializable{
 			return false;
 		CustomerEntity other = (CustomerEntity) obj;
 		return this.getId().equals(other.getId());
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerEntity [id=" + this.getId()+"]";
 	}
 	
 }
